@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Salon K — Coiffure, Soins &amp; Beauté à Le Havre</title>
+<meta name="description" content="Le Salon K — salon de coiffure mixte, soins et beauté au Havre (Bléville). Réservation en ligne en temps réel, prestations sur-mesure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Le Salon K",
+  "image": "https://lesalon-k.netlify.app/images/facade.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9 Rue Pierre Guillaume Petit",
+    "addressLocality": "Le Havre",
+    "postalCode": "76620",
+    "addressCountry": "FR"
+  },
+  "telephone": "+33235467528",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "148"
+  },
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"12:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"14:00","closes":"19:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"09:00","closes":"19:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"18:00"}
+  ]
+}
+</script>
+<style>
+  :root{
+    --ink:#111111;
+    --paper:#f7f5f1;
+    --paper-2:#efece5;
+    --charcoal:#1c1c1c;
+    --gold:#a9863f;
+    --gold-light:#cbab6c;
+    --line:#ddd6c8;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Jost',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;}
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .container{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,245,241,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;max-width:1180px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;letter-spacing:0.03em;
+    display:flex;align-items:baseline;gap:6px;
+  }
+  .logo .k{
+    background:var(--ink);color:#fff;
+    font-family:'Jost',sans-serif;font-weight:600;
+    padding:2px 8px;font-size:15px;letter-spacing:0.05em;
+  }
+  nav.links{display:flex;gap:34px;font-size:14px;letter-spacing:0.02em;}
+  nav.links a{text-decoration:none;opacity:0.75;transition:opacity .2s;}
+  nav.links a:hover{opacity:1;}
+  .status-pill{
+    display:flex;align-items:center;gap:8px;
+    border:1px solid var(--line);border-radius:999px;
+    padding:8px 16px;font-size:13px;background:#fff;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:#b23b3b;}
+  .dot.open{background:#3f7a4e;}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .burger{display:none;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:92vh;display:flex;align-items:flex-end;
+    background:linear-gradient(180deg,rgba(17,17,17,0.15),rgba(17,17,17,0.78)),
+      url('images/facade.jpg') center/cover no-repeat;
+  }
+  .hero-content{
+    color:#fdfcfa;padding:80px 32px 70px;max-width:1180px;margin:0 auto;width:100%;
+  }
+  .hero-content .eyebrow{color:var(--gold-light);}
+  .hero h1{
+    font-size:clamp(40px,6vw,74px);
+    line-height:1.05;color:#fff;margin:18px 0 22px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-light);}
+  .hero p.lead{
+    font-size:18px;max-width:520px;color:#e9e6df;margin-bottom:34px;font-weight:300;
+  }
+  .btn-row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:34px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 28px;border-radius:2px;font-size:14px;letter-spacing:0.04em;
+    text-decoration:none;font-weight:500;transition:all .2s;
+  }
+  .btn-primary{background:var(--gold);color:#fff;}
+  .btn-primary:hover{background:var(--gold-light);}
+  .btn-outline{border:1px solid rgba(255,255,255,0.55);color:#fff;}
+  .btn-outline:hover{background:rgba(255,255,255,0.12);}
+  .hero-meta{display:flex;gap:22px;flex-wrap:wrap;align-items:center;color:#e9e6df;font-size:14px;}
+  .stars{color:var(--gold-light);letter-spacing:2px;}
+
+  /* SECTION generic */
+  section{padding:110px 0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 60px;}
+  .section-head h2{font-size:clamp(30px,4vw,46px);margin-top:14px;}
+  .section-head p{color:#55503f;font-size:16px;margin-top:16px;font-weight:300;}
+
+  /* PRESTATIONS */
+  section.prestations{background:var(--paper-2);}
+  .price-highlights{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:70px;
+  }
+  .price-card{
+    background:var(--ink);color:#fff;padding:44px 30px;text-align:center;
+    border:1px solid var(--ink);
+  }
+  .price-card .tier{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px;}
+  .price-card .amount{font-family:'Cormorant Garamond',serif;font-size:52px;line-height:1;}
+  .price-card .amount sup{font-size:22px;vertical-align:super;margin-left:2px;}
+  .price-card .desc{margin-top:16px;font-size:13px;color:#cfcabf;font-weight:300;line-height:1.6;}
+
+  .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 60px;}
+  .menu-col h3{font-size:22px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line);}
+  .menu-row{
+    display:flex;justify-content:space-between;gap:12px;padding:13px 0;
+    border-bottom:1px dotted var(--line);font-size:15px;
+  }
+  .menu-row .price{color:var(--gold);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:17px;white-space:nowrap;}
+  .menu-note{
+    text-align:center;margin-top:50px;font-size:13px;color:#79735f;font-style:italic;
+  }
+
+  /* GALERIE */
+  .gallery{
+    columns:3 260px;column-gap:18px;
+  }
+  .gallery img{
+    width:100%;display:block;margin-bottom:18px;break-inside:avoid;
+    filter:grayscale(15%);
+  }
+
+  /* RESERVATION */
+  section.reservation{background:var(--ink);color:#f2f0ea;}
+  section.reservation .section-head p{color:#c9c5b8;}
+  section.reservation .eyebrow{color:var(--gold-light);}
+  .resa-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:50px;align-items:start;}
+  .hours-card, .form-card{
+    background:#1c1c1c;border:1px solid #333026;padding:38px;
+  }
+  .hours-card h3{font-size:24px;margin-bottom:26px;}
+  .hours-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #2c2a22;font-size:15px;}
+  .hours-row.today{color:var(--gold-light);font-weight:500;}
+  .form-card h3{font-size:24px;margin-bottom:8px;}
+  .form-card p.hint{color:#b5b1a3;font-size:14px;margin-bottom:26px;}
+  label.field-label{display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#a9a596;margin-bottom:8px;}
+  input, select, textarea{
+    width:100%;background:#141414;border:1px solid #383527;color:#f2f0ea;
+    padding:13px 14px;font-family:'Jost',sans-serif;font-size:15px;margin-bottom:20px;
+  }
+  input:focus, select:focus, textarea:focus{outline:1px solid var(--gold);}
+  #slotsWrap{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;min-height:44px;}
+  .slot-btn{
+    border:1px solid #494533;background:transparent;color:#f2f0ea;
+    padding:10px 14px;font-size:14px;cursor:pointer;transition:all .15s;font-family:'Jost',sans-serif;
+  }
+  .slot-btn:hover{border-color:var(--gold);}
+  .slot-btn.selected{background:var(--gold);border-color:var(--gold);color:#141414;font-weight:500;}
+  .slot-btn.taken{opacity:0.3;text-decoration:line-through;cursor:not-allowed;}
+  .slots-msg{color:#b5b1a3;font-size:14px;margin-bottom:16px;}
+  .btn-gold{
+    width:100%;background:var(--gold);color:#141414;border:none;padding:16px;
+    font-size:14px;letter-spacing:0.05em;font-weight:600;cursor:pointer;transition:background .2s;
+  }
+  .btn-gold:hover{background:var(--gold-light);}
+  .btn-gold:disabled{opacity:0.5;cursor:not-allowed;}
+  .confirm-msg{margin-top:16px;font-size:14px;}
+  .confirm-msg.ok{color:#8fd19e;}
+  .confirm-msg.err{color:#e08a8a;}
+
+  /* ACCES */
+  .acces-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .acces-info h3{font-size:30px;margin-bottom:22px;}
+  .acces-info p{font-size:15px;color:#4a4638;margin-bottom:10px;line-height:1.7;}
+  .social-row{display:flex;gap:14px;margin-top:26px;}
+  .social-row a{
+    width:42px;height:42px;border:1px solid var(--ink);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;text-decoration:none;
+    transition:all .2s;
+  }
+  .social-row a:hover{background:var(--ink);color:#fff;}
+  .acces-map{background:var(--paper-2);border:1px solid var(--line);height:100%;min-height:320px;
+    display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .acces-map iframe{width:100%;height:100%;min-height:320px;border:0;filter:grayscale(40%);}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#c9c5b8;padding:60px 0 30px;text-align:center;}
+  footer .logo{justify-content:center;color:#fff;margin-bottom:18px;}
+  footer .logo .k{background:var(--gold);color:#141414;}
+  footer p{font-size:14px;margin:6px 0;}
+  footer .legal-links{margin-top:20px;font-size:13px;}
+  footer .legal-links a{text-decoration:underline;color:#a9a596;}
+
+  /* COOKIE BANNER */
+  #cookieBanner{
+    position:fixed;left:20px;right:20px;bottom:20px;max-width:560px;margin:0 auto;
+    background:#141414;color:#f2f0ea;padding:22px 24px;border:1px solid #383527;
+    box-shadow:0 10px 40px rgba(0,0,0,0.3);z-index:200;font-size:14px;line-height:1.6;
+  }
+  #cookieBanner p{margin:0 0 16px;}
+  #cookieBanner .actions{display:flex;gap:12px;}
+  #cookieBanner button{
+    flex:1;padding:11px;border:1px solid #494533;background:transparent;color:#f2f0ea;
+    font-family:'Jost',sans-serif;font-size:13px;cursor:pointer;
+  }
+  #cookieBanner button.accept{background:var(--gold);border-color:var(--gold);color:#141414;font-weight:600;}
+
+  @media (max-width:880px){
+    nav.links{display:none;}
+    .price-highlights{grid-template-columns:1fr;}
+    .menu-grid{grid-template-columns:1fr;gap:40px;}
+    .resa-grid{grid-template-columns:1fr;}
+    .acces-grid{grid-template-columns:1fr;}
+    section{padding:70px 0;}
+    .gallery{columns:2 160px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">le salon <span class="k">K</span></div>
+    <nav class="links">
+      <a href="#prestations">Prestations</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#reserver">Réserver</a>
+      <a href="#acces">Accès</a>
+    </nav>
+    <div class="nav-right">
+      <div class="status-pill"><span class="dot" id="statusDot"></span><span id="statusText">…</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">LE HAVRE · BLÉVILLE</div>
+    <h1>Le geste juste,<br><em>l'allure en plus.</em></h1>
+    <p class="lead">Le Salon K — coiffure, soins et beauté au cœur du Havre. Un savoir-faire précis, dans un cadre résolument élégant.</p>
+    <div class="btn-row">
+      <a href="#reserver" class="btn btn-primary">Réserver un créneau</a>
+      <a href="tel:0235467528" class="btn btn-outline">Appeler · 02 35 46 75 28</a>
+    </div>
+    <div class="hero-meta">
+      <span class="stars">★★★★★</span>
+      <span>4,5/5 · 148 avis Google</span>
+      <span id="statusTextHero">·</span>
+    </div>
+  </div>
+</section>
+
+<section class="prestations" id="prestations">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Prestations</div>
+      <h2>Une grille tarifaire claire</h2>
+      <p>Trois formules observées en salon, pour un premier repère — le détail complet des prestations est communiqué en cabine selon la longueur et la nature de vos cheveux.</p>
+    </div>
+
+    <div class="price-highlights">
+      <div class="price-card">
+        <div class="tier">Forfait Découverte</div>
+        <div class="amount">21<sup>€</sup></div>
+        <div class="desc">Shampooing · Coupe · Brushing</div>
+      </div>
+      <div class="price-card">
+        <div class="tier">Forfait Signature</div>
+        <div class="amount">34<sup>€</sup></div>
+        <div class="desc">Shampooing · Coupe · Brushing soigné</div>
+      </div>
+      <div class="price-card">
+        <div class="tier">Forfait Prestige</div>
+        <div class="amount">53<sup>€</sup></div>
+        <div class="desc">Couleur · Shampooing · Coupe · Brushing</div>
+      </div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-col">
+        <h3>Coiffure</h3>
+        <div class="menu-row"><span>Coupe Femme</span><span class="price">sur devis</span></div>
+        <div class="menu-row"><span>Coupe Homme</span><span class="price">sur devis</span></div>
+        <div class="menu-row"><span>Coupe Enfant</span><span class="price">sur devis</span></div>
+        <div class="menu-row"><span>Brushing</span><span class="price">sur devis</span></div>
+        <div class="menu-row"><span>Chignon &amp; coiffure événement</span><span class="price">sur devis</span></div>
+      </div>
+      <div class="menu-col">
+        <h3>Colorations &amp; techniques</h3>
+        <div class="menu-row"><span>Coloration</span><span class="price">sur devis</span></div>
+        <div class="menu-row"><span>Balayage / mèches</span><span class="price">sur devis</span></div>
+        <div class="menu-row"><span>Soins Kérastase</span><span class="price">sur devis</span></div>
+        <div class="menu-row"><span>Lissage</span><span class="price">sur devis</span></div>
+        <div class="menu-row"><span>Beauté &amp; esthétique</span><span class="price">sur devis</span></div>
+      </div>
+    </div>
+    <p class="menu-note">Les trois forfaits ci-dessus correspondent aux tarifs affichés en vitrine du salon. Grille complète et devis personnalisé auprès de l'équipe.</p>
+  </div>
+</section>
+
+<section class="galerie" id="galerie">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Galerie</div>
+      <h2>Le salon, en images</h2>
+    </div>
+    <div class="gallery">
+      <img src="images/facade.jpg" alt="Façade Le Salon K, Le Havre">
+      <img src="images/interieur-1.jpg" alt="Intérieur Le Salon K">
+      <img src="images/coiffure-chignon.jpg" alt="Coiffure chignon réalisée au salon">
+      <img src="images/interieur-2.jpg" alt="Espace coiffage Le Salon K">
+    </div>
+  </div>
+</section>
+
+<section class="reservation" id="reserver">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Réservation</div>
+      <h2>Choisissez votre créneau</h2>
+      <p>Sélectionnez une date pour voir les disponibilités réelles, en direct.</p>
+    </div>
+
+    <div class="resa-grid">
+      <div class="hours-card">
+        <h3>Horaires d'ouverture</h3>
+        <div class="hours-row" data-day="1"><span>Lundi</span><span>9h–12h · 14h–19h</span></div>
+        <div class="hours-row" data-day="2"><span>Mardi</span><span>9h–12h · 14h–19h</span></div>
+        <div class="hours-row" data-day="3"><span>Mercredi</span><span>9h–12h · 14h–19h</span></div>
+        <div class="hours-row" data-day="4"><span>Jeudi</span><span>9h–12h · 14h–19h</span></div>
+        <div class="hours-row" data-day="5"><span>Vendredi</span><span>9h–19h</span></div>
+        <div class="hours-row" data-day="6"><span>Samedi</span><span>9h–18h</span></div>
+        <div class="hours-row" data-day="0"><span>Dimanche</span><span>Fermé</span></div>
+      </div>
+
+      <div class="form-card">
+        <h3>Prendre rendez-vous</h3>
+        <p class="hint">Choisissez une date, puis un créneau disponible.</p>
+
+        <label class="field-label">Date souhaitée</label>
+        <input type="date" id="dateInput">
+
+        <label class="field-label">Créneaux disponibles</label>
+        <div id="slotsWrap"><span class="slots-msg">Choisissez une date pour voir les créneaux.</span></div>
+
+        <div id="detailsFields" style="display:none;">
+          <label class="field-label">Nom</label>
+          <input type="text" id="nameInput" placeholder="Votre nom">
+          <label class="field-label">Téléphone</label>
+          <input type="tel" id="phoneInput" placeholder="Votre numéro">
+          <label class="field-label">Prestation souhaitée (optionnel)</label>
+          <input type="text" id="serviceInput" placeholder="Ex : coupe, couleur, brushing...">
+          <button class="btn-gold" id="confirmBtn">Confirmer la réservation</button>
+          <div class="confirm-msg" id="confirmMsg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="acces">
+  <div class="container">
+    <div class="acces-grid">
+      <div class="acces-info">
+        <div class="eyebrow">Accès</div>
+        <h3>Le Salon K</h3>
+        <p>9 Rue Pierre Guillaume Petit<br>76620 Le Havre (Bléville)</p>
+        <p>02 35 46 75 28</p>
+        <p>Coiffure, Soins, Beauté — accueil sans rendez-vous possible selon disponibilité.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/lesalon.k__/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="https://www.facebook.com/p/Le-Salon-K-100063630370521/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8h-2a2 2 0 0 0-2 2v10M8 12h5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="acces-map">
+        <iframe loading="lazy" src="https://www.google.com/maps?q=9+Rue+Pierre+Guillaume+Petit,+76620+Le+Havre&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo">le salon <span class="k">K</span></div>
+    <p>9 Rue Pierre Guillaume Petit, 76620 Le Havre · 02 35 46 75 28</p>
+    <p>4,5/5 · 148 avis Google</p>
+    <div class="legal-links">
+      <a href="legal.html">Mentions légales</a> · <a href="legal.html#confidentialite">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<div id="cookieBanner" style="display:none;">
+  <p>Ce site utilise un outil de mesure d'audience anonyme pour améliorer votre expérience. Vous pouvez accepter ou refuser.</p>
+  <div class="actions">
+    <button id="cookieDecline">Refuser</button>
+    <button class="accept" id="cookieAccept">Accepter</button>
+  </div>
+</div>
+
+<!-- Formulaire caché Netlify Forms pour notification email des réservations -->
+<form name="reservation" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="nom" />
+  <input type="text" name="telephone" />
+  <input type="text" name="date" />
+  <input type="text" name="creneau" />
+  <input type="text" name="prestation" />
+</form>
+
+<script>
+  // ---- Statut ouvert/fermé en temps réel ----
+  const HOURS = {
+    0: null,
+    1: [[9,12],[14,19]],
+    2: [[9,12],[14,19]],
+    3: [[9,12],[14,19]],
+    4: [[9,12],[14,19]],
+    5: [[9,19]],
+    6: [[9,18]],
+  };
+  const DAY_NAMES = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+
+  function updateStatus(){
+    const now = new Date();
+    const day = now.getDay();
+    const mins = now.getHours()*60 + now.getMinutes();
+    const ranges = HOURS[day];
+    let open = false;
+    if (ranges){
+      for (const [oh, ch] of ranges){
+        if (mins >= oh*60 && mins < ch*60){ open = true; break; }
+      }
+    }
+    const dot = document.getElementById('statusDot');
+    const text = document.getElementById('statusText');
+    const textHero = document.getElementById('statusTextHero');
+
+    if (open){
+      dot.classList.add('open');
+      text.textContent = "Ouvert";
+      textHero.textContent = "Ouvert actuellement";
+    } else {
+      dot.classList.remove('open');
+      // trouver la prochaine ouverture
+      let nextDay = day, tries = 0, label = "";
+      while (tries < 8){
+        const r = HOURS[nextDay % 7];
+        if (r){
+          const openH = r[0][0];
+          if (nextDay === day && mins < r[0][0]*60){
+            label = `Ouvre aujourd'hui à ${openH}h`;
+            break;
+          } else if (nextDay !== day){
+            label = tries === 1 ? `Ouvre demain à ${openH}h` : `Ouvre ${DAY_NAMES[nextDay % 7]} à ${openH}h`;
+            break;
+          }
+        }
+        nextDay++; tries++;
+      }
+      text.textContent = "Fermé · " + label;
+      textHero.textContent = "Fermé · " + label;
+    }
+
+    // Highlight today's row
+    document.querySelectorAll('.hours-row').forEach(row=>{
+      row.classList.toggle('today', parseInt(row.dataset.day) === day);
+    });
+  }
+  updateStatus();
+  setInterval(updateStatus, 60000);
+
+  // ---- Cookie banner ----
+  const GA_MEASUREMENT_ID = ""; // à renseigner si un compte GA4 est fourni par le salon
+  function loadAnalytics(){
+    if (!GA_MEASUREMENT_ID) return;
+    const s = document.createElement('script');
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    s.async = true;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID);
+  }
+  const consent = localStorage.getItem('cookie_consent_lesalonk');
+  if (!consent){
+    document.getElementById('cookieBanner').style.display = 'block';
+  } else if (consent === 'accepted'){
+    loadAnalytics();
+  }
+  document.getElementById('cookieAccept').addEventListener('click', ()=>{
+    localStorage.setItem('cookie_consent_lesalonk','accepted');
+    document.getElementById('cookieBanner').style.display = 'none';
+    loadAnalytics();
+  });
+  document.getElementById('cookieDecline').addEventListener('click', ()=>{
+    localStorage.setItem('cookie_consent_lesalonk','declined');
+    document.getElementById('cookieBanner').style.display = 'none';
+  });
+
+  // ---- Réservation en direct ----
+  const dateInput = document.getElementById('dateInput');
+  const slotsWrap = document.getElementById('slotsWrap');
+  const detailsFields = document.getElementById('detailsFields');
+  const confirmBtn = document.getElementById('confirmBtn');
+  const confirmMsg = document.getElementById('confirmMsg');
+  let selectedSlot = null;
+  let currentDate = null;
+
+  const todayStr = new Date().toISOString().split('T')[0];
+  dateInput.min = todayStr;
+
+  dateInput.addEventListener('change', () => loadSlots(dateInput.value));
+
+  async function loadSlots(dateStr){
+    selectedSlot = null;
+    currentDate = dateStr;
+    detailsFields.style.display = 'none';
+    confirmMsg.textContent = '';
+    if (!dateStr){ return; }
+    slotsWrap.innerHTML = '<span class="slots-msg">Chargement des créneaux...</span>';
+    try {
+      const res = await fetch(`/.netlify/functions/slots?date=${dateStr}`);
+      const data = await res.json();
+      if (!res.ok || data.error){
+        slotsWrap.innerHTML = `<span class="slots-msg">Une erreur est survenue — réessayez ou appelez le salon.</span>`;
+        return;
+      }
+      if (!data.open){
+        slotsWrap.innerHTML = '<span class="slots-msg">Le salon est fermé ce jour-là — choisissez une autre date.</span>';
+        return;
+      }
+      if (!data.slots.length){
+        slotsWrap.innerHTML = '<span class="slots-msg">Plus aucun créneau disponible ce jour-là.</span>';
+        return;
+      }
+      slotsWrap.innerHTML = '';
+      data.slots.forEach(s => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'slot-btn' + (s.taken ? ' taken' : '');
+        btn.textContent = s.time;
+        if (s.taken){
+          btn.disabled = true;
+        } else {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedSlot = s.time;
+            detailsFields.style.display = 'block';
+          });
+        }
+        slotsWrap.appendChild(btn);
+      });
+    } catch (err){
+      slotsWrap.innerHTML = '<span class="slots-msg">Impossible de charger les créneaux — réessayez plus tard.</span>';
+    }
+  }
+
+  confirmBtn.addEventListener('click', async () => {
+    const name = document.getElementById('nameInput').value.trim();
+    const phone = document.getElementById('phoneInput').value.trim();
+    const service = document.getElementById('serviceInput').value.trim();
+    confirmMsg.textContent = '';
+    confirmMsg.className = 'confirm-msg';
+
+    if (!selectedSlot || !currentDate){
+      confirmMsg.textContent = 'Choisissez un créneau.';
+      confirmMsg.classList.add('err');
+      return;
+    }
+    if (!name || !phone){
+      confirmMsg.textContent = 'Merci de renseigner votre nom et votre téléphone.';
+      confirmMsg.classList.add('err');
+      return;
+    }
+
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = 'Envoi en cours...';
+
+    try {
+      const res = await fetch('/.netlify/functions/slots', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ date: currentDate, time: selectedSlot, name, phone, service })
+      });
+      const data = await res.json();
+      if (data.ok){
+        confirmMsg.textContent = `Rendez-vous confirmé le ${currentDate} à ${selectedSlot}. Le salon vous contactera si besoin.`;
+        confirmMsg.classList.add('ok');
+        confirmBtn.textContent = 'Réservé ✓';
+
+        // Notification email via Netlify Forms (best-effort, ne bloque pas la réservation)
+        const formData = new URLSearchParams();
+        formData.append('form-name', 'reservation');
+        formData.append('nom', name);
+        formData.append('telephone', phone);
+        formData.append('date', currentDate);
+        formData.append('creneau', selectedSlot);
+        formData.append('prestation', service);
+        fetch('/', { method: 'POST', headers: {'Content-Type':'application/x-www-form-urlencoded'}, body: formData.toString() }).catch(()=>{});
+
+        loadSlots(currentDate);
+      } else {
+        confirmMsg.textContent = data.reason === 'déjà réservé'
+          ? 'Ce créneau vient d\'être pris — choisissez-en un autre.'
+          : 'Une erreur est survenue — réessayez.';
+        confirmMsg.classList.add('err');
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = 'Confirmer la réservation';
+        if (data.reason === 'déjà réservé') loadSlots(currentDate);
+      }
+    } catch (err){
+      confirmMsg.textContent = 'Impossible d\'envoyer la réservation — réessayez plus tard.';
+      confirmMsg.classList.add('err');
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = 'Confirmer la réservation';
+    }
+  });
+</script>
+</body>
+</html>
