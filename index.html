@@ -98,6 +98,11 @@
     display:flex;align-items:center;gap:8px;
     border:1px solid var(--line);border-radius:999px;
     padding:8px 16px;font-size:13px;background:#fff;
+    text-decoration:none;cursor:pointer;transition:all .2s;
+  }
+  .status-pill:hover{
+    border-color:var(--gold);background:var(--paper-2);
+    box-shadow:0 2px 10px rgba(169,134,63,0.18);
   }
   .dot{width:7px;height:7px;border-radius:50%;background:#b23b3b;}
   .dot.open{background:#3f7a4e;}
@@ -331,7 +336,7 @@
       <a href="#acces">Accès</a>
     </nav>
     <div class="nav-right">
-      <div class="status-pill"><span class="dot" id="statusDot"></span><span id="statusText">…</span></div>
+      <a href="#reserver" class="status-pill" title="Voir les horaires et réserver un créneau"><span class="dot" id="statusDot"></span><span id="statusText">…</span></a>
     </div>
   </div>
 </header>
@@ -450,7 +455,7 @@
         <div class="aa-caption"><span class="aa-title">La luminosité était la priorité</span><span class="aa-tags">Schwarzkopf</span></div>
       </div>
     </div>
-    <p class="aa-note">Photos publiées par Le Salon K sur Instagram (@lesalon.k__) — reproduites ici avec leur contenu original.</p>
+    <p class="aa-note">« Une femme qui change de coiffure est une femme qui est sur le point de changer sa vie. » — Coco Chanel</p>
   </div>
 </section>
 
