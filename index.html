@@ -28,8 +28,8 @@
     "reviewCount": "148"
   },
   "openingHoursSpecification": [
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"12:00"},
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"14:00","closes":"19:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"12:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday"],"opens":"14:00","closes":"19:00"},
     {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"09:00","closes":"19:00"},
     {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"18:00"}
   ]
@@ -151,8 +151,19 @@
     border:1px solid var(--ink);
   }
   .price-card .tier{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px;}
-  .price-card .amount{font-family:'Cormorant Garamond',serif;font-size:52px;line-height:1;}
-  .price-card .amount sup{font-size:22px;vertical-align:super;margin-left:2px;}
+  .price-card .amount{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+    font-size:56px;line-height:1;color:#fdfcfa;
+    font-variant-numeric:oldstyle-nums;font-feature-settings:"onum" 1;
+    position:relative;display:inline-block;
+  }
+  .price-card .amount sup{
+    font-size:20px;font-style:normal;vertical-align:super;margin-left:3px;color:var(--gold-light);
+  }
+  .price-card .amount::after{
+    content:"";display:block;width:34px;height:1px;background:var(--gold-light);
+    margin:16px auto 0;opacity:0.7;
+  }
   .price-card .desc{margin-top:16px;font-size:13px;color:#cfcabf;font-weight:300;line-height:1.6;}
 
   .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 60px;}
@@ -161,19 +172,63 @@
     display:flex;justify-content:space-between;gap:12px;padding:13px 0;
     border-bottom:1px dotted var(--line);font-size:15px;
   }
-  .menu-row .price{color:var(--gold);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:17px;white-space:nowrap;}
+  .menu-row .price{color:var(--gold);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:0.02em;font-variant-numeric:oldstyle-nums;white-space:nowrap;}
   .menu-note{
     text-align:center;margin-top:50px;font-size:13px;color:#79735f;font-style:italic;
   }
+
+  /* AVANT / APRÈS */
+  section.avant-apres{background:var(--paper);}
+  .aa-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 34px;}
+  .aa-card{background:#fff;border:1px solid var(--line);}
+  .aa-photos{display:grid;grid-template-columns:1fr 1fr;}
+  .aa-photo{position:relative;overflow:hidden;aspect-ratio:4/5;}
+  .aa-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+  .aa-photo:hover img{transform:scale(1.035);}
+  .aa-photo .aa-tag{
+    position:absolute;top:12px;left:12px;
+    font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+    background:rgba(17,17,17,0.72);color:#f2f0ea;padding:6px 11px;
+  }
+  .aa-photo.apres .aa-tag{background:var(--gold);color:#141414;}
+  .aa-photo.has-price .price-overlay{
+    position:absolute;inset:auto 0 0 0;padding:22px 16px 16px;
+    background:linear-gradient(0deg,rgba(17,17,17,0.92) 10%,rgba(17,17,17,0.55) 55%,rgba(17,17,17,0) 100%);
+    color:#fdfcfa;text-align:center;
+    transform:translateY(100%);opacity:0;transition:all .35s ease;
+  }
+  .aa-photo.has-price:hover .price-overlay{transform:translateY(0);opacity:1;}
+  .price-overlay .p-name{
+    display:block;font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;margin-bottom:4px;
+  }
+  .price-overlay .p-price{
+    display:block;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-light);
+  }
+  .aa-caption{
+    display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+    padding:18px 22px;font-size:14px;
+  }
+  .aa-caption .aa-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;}
+  .aa-caption .aa-tags{color:#8a8570;font-size:12px;text-align:right;}
+  .aa-note{text-align:center;margin-top:46px;font-size:13px;color:#79735f;font-style:italic;}
 
   /* GALERIE */
   .gallery{
     columns:3 260px;column-gap:18px;
   }
+  .gallery figure{margin:0 0 18px;break-inside:avoid;position:relative;overflow:hidden;}
   .gallery img{
-    width:100%;display:block;margin-bottom:18px;break-inside:avoid;
-    filter:grayscale(15%);
+    width:100%;display:block;
+    filter:grayscale(15%);transition:transform .5s ease;
   }
+  .gallery figure:hover img{transform:scale(1.03);}
+  .gallery figure.has-price .price-overlay{
+    position:absolute;inset:auto 0 0 0;padding:22px 16px 16px;
+    background:linear-gradient(0deg,rgba(17,17,17,0.9) 10%,rgba(17,17,17,0.5) 55%,rgba(17,17,17,0) 100%);
+    color:#fdfcfa;text-align:center;
+    transform:translateY(100%);opacity:0;transition:all .35s ease;
+  }
+  .gallery figure.has-price:hover .price-overlay{transform:translateY(0);opacity:1;}
 
   /* RESERVATION */
   section.reservation{background:var(--ink);color:#f2f0ea;}
@@ -186,6 +241,7 @@
   .hours-card h3{font-size:24px;margin-bottom:26px;}
   .hours-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #2c2a22;font-size:15px;}
   .hours-row.today{color:var(--gold-light);font-weight:500;}
+  .hours-row.closed-notice span:last-child{color:#c98a8a;font-style:italic;font-size:13px;}
   .form-card h3{font-size:24px;margin-bottom:8px;}
   .form-card p.hint{color:#b5b1a3;font-size:14px;margin-bottom:26px;}
   label.field-label{display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#a9a596;margin-bottom:8px;}
@@ -258,6 +314,7 @@
     .acces-grid{grid-template-columns:1fr;}
     section{padding:70px 0;}
     .gallery{columns:2 160px;}
+    .aa-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -268,6 +325,7 @@
     <div class="logo">le salon <span class="k">K</span></div>
     <nav class="links">
       <a href="#prestations">Prestations</a>
+      <a href="#avant-apres">Avant / Après</a>
       <a href="#galerie">Galerie</a>
       <a href="#reserver">Réserver</a>
       <a href="#acces">Accès</a>
@@ -343,6 +401,59 @@
   </div>
 </section>
 
+<section class="avant-apres" id="avant-apres">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Avant / Après</div>
+      <h2>Des transformations qui parlent d'elles-mêmes</h2>
+      <p>Le savoir-faire de l'équipe, formée Wella Education France &amp; Schwarzkopf Professional, sur de vraies clientes du salon. Survolez une photo « après » pour voir la prestation réalisée.</p>
+    </div>
+
+    <div class="aa-grid">
+      <div class="aa-card">
+        <div class="aa-photos">
+          <div class="aa-photo avant"><img src="images/avant-apres-caramel-avant.jpg" alt="Avant — balayage caramel"><span class="aa-tag">Avant</span></div>
+          <div class="aa-photo apres has-price"><img src="images/avant-apres-caramel-apres.jpg" alt="Après — balayage caramel"><span class="aa-tag">Après</span>
+            <div class="price-overlay"><span class="p-name">Balayage caramel</span><span class="p-price">sur devis</span></div>
+          </div>
+        </div>
+        <div class="aa-caption"><span class="aa-title">On aime le caramel</span><span class="aa-tags">Wella Education France</span></div>
+      </div>
+
+      <div class="aa-card">
+        <div class="aa-photos">
+          <div class="aa-photo avant"><img src="images/avant-apres-blondfroid-avant.jpg" alt="Avant — balayage tons froids"><span class="aa-tag">Avant</span></div>
+          <div class="aa-photo apres has-price"><img src="images/avant-apres-blondfroid-apres.jpg" alt="Après — balayage tons froids"><span class="aa-tag">Après</span>
+            <div class="price-overlay"><span class="p-name">Balayage tons froids</span><span class="p-price">sur devis</span></div>
+          </div>
+        </div>
+        <div class="aa-caption"><span class="aa-title">À la recherche de tons plus froids</span><span class="aa-tags">Schwarzkopf Professional</span></div>
+      </div>
+
+      <div class="aa-card">
+        <div class="aa-photos">
+          <div class="aa-photo avant"><img src="images/avant-apres-babyblonde-avant.jpg" alt="Avant — baby blonde"><span class="aa-tag">Avant</span></div>
+          <div class="aa-photo apres has-price"><img src="images/avant-apres-babyblonde-apres.jpg" alt="Après — baby blonde"><span class="aa-tag">Après</span>
+            <div class="price-overlay"><span class="p-name">Baby blonde</span><span class="p-price">sur devis</span></div>
+          </div>
+        </div>
+        <div class="aa-caption"><span class="aa-title">Baby blonde</span><span class="aa-tags">Wella · Schwarzkopf</span></div>
+      </div>
+
+      <div class="aa-card">
+        <div class="aa-photos">
+          <div class="aa-photo avant"><img src="images/avant-apres-luminosite-avant.jpg" alt="Avant — balayage lumineux"><span class="aa-tag">Avant</span></div>
+          <div class="aa-photo apres has-price"><img src="images/avant-apres-luminosite-apres.jpg" alt="Après — balayage lumineux"><span class="aa-tag">Après</span>
+            <div class="price-overlay"><span class="p-name">Balayage lumineux</span><span class="p-price">sur devis</span></div>
+          </div>
+        </div>
+        <div class="aa-caption"><span class="aa-title">La luminosité était la priorité</span><span class="aa-tags">Schwarzkopf</span></div>
+      </div>
+    </div>
+    <p class="aa-note">Photos publiées par Le Salon K sur Instagram (@lesalon.k__) — reproduites ici avec leur contenu original.</p>
+  </div>
+</section>
+
 <section class="galerie" id="galerie">
   <div class="container">
     <div class="section-head">
@@ -350,10 +461,19 @@
       <h2>Le salon, en images</h2>
     </div>
     <div class="gallery">
-      <img src="images/facade.jpg" alt="Façade Le Salon K, Le Havre">
-      <img src="images/interieur-1.jpg" alt="Intérieur Le Salon K">
-      <img src="images/coiffure-chignon.jpg" alt="Coiffure chignon réalisée au salon">
-      <img src="images/interieur-2.jpg" alt="Espace coiffage Le Salon K">
+      <figure><img src="images/facade.jpg" alt="Façade Le Salon K, Le Havre"></figure>
+      <figure><img src="images/interieur-1.jpg" alt="Intérieur Le Salon K"></figure>
+      <figure class="has-price"><img src="images/galerie-chignon-mariage.jpg" alt="Chignon de mariage réalisé au salon">
+        <div class="price-overlay"><span class="p-name">Chignon &amp; coiffure événement</span><span class="p-price">sur devis</span></div>
+      </figure>
+      <figure><img src="images/coiffure-chignon.jpg" alt="Coiffure chignon réalisée au salon"></figure>
+      <figure class="has-price"><img src="images/galerie-rouge-automne.jpg" alt="Coloration rouge cerise réalisée au salon">
+        <div class="price-overlay"><span class="p-name">Coloration</span><span class="p-price">sur devis</span></div>
+      </figure>
+      <figure><img src="images/interieur-2.jpg" alt="Espace coiffage Le Salon K"></figure>
+      <figure class="has-price"><img src="images/galerie-lisse-glossy.jpg" alt="Brushing lissant réalisé au salon">
+        <div class="price-overlay"><span class="p-name">Lissage &amp; brushing glossy</span><span class="p-price">sur devis</span></div>
+      </figure>
     </div>
   </div>
 </section>
@@ -369,7 +489,7 @@
     <div class="resa-grid">
       <div class="hours-card">
         <h3>Horaires d'ouverture</h3>
-        <div class="hours-row" data-day="1"><span>Lundi</span><span>9h–12h · 14h–19h</span></div>
+        <div class="hours-row closed-notice" data-day="1"><span>Lundi</span><span>Fermé (jusqu'à nouvel ordre)</span></div>
         <div class="hours-row" data-day="2"><span>Mardi</span><span>9h–12h · 14h–19h</span></div>
         <div class="hours-row" data-day="3"><span>Mercredi</span><span>9h–12h · 14h–19h</span></div>
         <div class="hours-row" data-day="4"><span>Jeudi</span><span>9h–12h · 14h–19h</span></div>
@@ -460,7 +580,7 @@
   // ---- Statut ouvert/fermé en temps réel ----
   const HOURS = {
     0: null,
-    1: [[9,12],[14,19]],
+    1: null, // fermé le lundi jusqu'à nouvel ordre (annonce du salon, 13/07)
     2: [[9,12],[14,19]],
     3: [[9,12],[14,19]],
     4: [[9,12],[14,19]],
