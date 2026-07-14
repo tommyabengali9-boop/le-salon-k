@@ -455,7 +455,7 @@
         <div class="aa-caption"><span class="aa-title">La luminosité était la priorité</span><span class="aa-tags">Schwarzkopf</span></div>
       </div>
     </div>
-    <p class="aa-note">« Une femme qui change de coiffure est une femme qui est sur le point de changer sa vie. » — Coco Chanel</p>
+    <p class="aa-note">« Une transformation réussie commence toujours par la confiance placée entre de bonnes mains. »</p>
   </div>
 </section>
 
@@ -611,8 +611,13 @@
 
     if (open){
       dot.classList.add('open');
-      text.textContent = "Ouvert";
-      textHero.textContent = "Ouvert actuellement";
+      // heure de fermeture de la tranche horaire en cours (gère la coupure déjeuner)
+      let closeH = null;
+      for (const [oh, ch] of ranges){
+        if (mins >= oh*60 && mins < ch*60){ closeH = ch; break; }
+      }
+      text.textContent = closeH !== null ? `Ouvert · Ferme à ${closeH}h` : "Ouvert";
+      textHero.textContent = closeH !== null ? `Ouvert actuellement · Ferme à ${closeH}h` : "Ouvert actuellement";
     } else {
       dot.classList.remove('open');
       // trouver la prochaine ouverture
