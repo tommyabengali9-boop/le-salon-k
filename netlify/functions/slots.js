@@ -1,10 +1,11 @@
 const { getStore } = require("@netlify/blobs");
 
 // Horaires réels de Le Salon K (9 Rue Pierre Guillaume Petit, 76620 Le Havre)
-// Lun-Jeu 9h-12h / 14h-19h (coupure déjeuner), Ven 9h-19h en continu, Sam 9h-18h, fermé Dimanche
+// Mar-Jeu 9h-12h / 14h-19h (coupure déjeuner), Ven 9h-19h en continu, Sam 9h-18h, fermé Dimanche
+// Fermé le Lundi jusqu'à nouvel ordre (annonce du salon publiée le 22/06, effective à partir du 13/07)
 const HOURS = {
   0: null, // dimanche
-  1: [[9, 12], [14, 19]], // lundi
+  1: null, // lundi — fermé jusqu'à nouvel ordre
   2: [[9, 12], [14, 19]], // mardi
   3: [[9, 12], [14, 19]], // mercredi
   4: [[9, 12], [14, 19]], // jeudi
